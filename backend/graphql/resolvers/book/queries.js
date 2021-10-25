@@ -10,7 +10,7 @@ module.exports = new GraphQLObjectType({
             type: GraphQLList(BookType),
             args: {},
             resolve: async () => {
-                const books = await Book.find();
+                const books = await Book.find().populate('user');
 
                 return books;
             }
